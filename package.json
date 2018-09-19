@@ -2,7 +2,7 @@
   "fitbit": {
     "appUUID": "ac3583b0-4e49-4f4f-9761-fd46dceae783",
     "appType": "app",
-    "appDisplayName": "Techinc State App",
+    "appDisplayName": "Techinc State",
     "iconFile": "resources/icon.png",
     "wipeColor": "#f44336",
     "requestedPermissions": [
@@ -13,7 +13,7 @@
     ],
     "i18n": {
       "en": {
-        "name": "Techinc State App"
+        "name": "Techinc State"
       }
     }
   }

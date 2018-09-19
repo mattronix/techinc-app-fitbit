@@ -4,16 +4,32 @@ import * as messaging from "messaging";
 
 import { TechincAPI } from "./techinc.js"
 
-let TechincApi = new TechincAPI();
 
 
-setInterval(function(){
-  TechincApi.state().then(function(state) {
+
+// Listen for the onopen event
+messaging.peerSocket.onopen = function() {
+  // Ready to send or receive messages
+  SendSpaceState();
+  setInterval(SendSpaceState, 10*1000);
+}
+
+// Listen for the onmessage event
+messaging.peerSocket.onmessage = function(evt) {
+  // Output the message to the console
+  console.log(JSON.stringify(evt.data));
+}
+
+
+
+
+function SendSpaceState() {
+  let TechincApi = new TechincAPI();
+  TechincApi.state().then(function(spacestate) {
     if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
-      // Limit results to the number of tiles available in firmware
-      messaging.peerSocket.send(state);
+      messaging.peerSocket.send(spacestate);
     }
   }).catch(function (e) {
     console.log("error"); console.log(e)
-});
-}, 5000);
+  });
+}

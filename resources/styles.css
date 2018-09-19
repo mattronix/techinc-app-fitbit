@@ -2,7 +2,7 @@
   viewport-fill: fb-black;
 }
 
-#demotext {
+#TitleText {
   fill: white;
   font-size: 32;
   font-family: System-Regular;
@@ -11,7 +11,7 @@
   text-length: 99;
 }
 
-#statetext {
+#SpaceStateText {
   fill: white;
   font-size: 40;
   font-family: System-Regular;
